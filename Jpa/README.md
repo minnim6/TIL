@@ -6,5 +6,7 @@
 
 [MemberTest](https://github.com/minnim6/TIL/blob/main/Jpa/jpa-test/src/test/java/com/example/jpatest/MemberRepositoryTest.jav) 를 참조해주세요. 
 
+- 공부하면서 정리하기 때문에 오류가 있을수 있습니다 - 
+
 
 
