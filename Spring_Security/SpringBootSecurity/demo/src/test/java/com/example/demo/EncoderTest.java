@@ -23,8 +23,18 @@ public class EncoderTest {
         encoders.put("noop", NoOpPasswordEncoder.getInstance());
         encoders.put("pbkdf2", new Pbkdf2PasswordEncoder());
         encoders.put("sha256", new StandardPasswordEncoder());
+
         PasswordEncoder passwordEncoder =  new DelegatingPasswordEncoder(idForEncode, encoders);
         log.info(passwordEncoder.encode("password"));
+        idForEncode = "pbkdf2";
+
+        passwordEncoder = new DelegatingPasswordEncoder(idForEncode,encoders);
+        log.info(passwordEncoder.encode("password"));
+    }
+
+    @Test
+    public void passwordEncoderTest(){
+
     }
 
 
