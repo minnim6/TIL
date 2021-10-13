@@ -30,15 +30,19 @@ public class Member{
 ```java
 @Getter
 @Setter
-@Table(name = "Member")
+@Table(name = "MEMBER")
 @Entity
 public class Member{
-	@id
-	@Colum(name = "ID")
-	private String id;
-	@Colum(name ="NAME")
-	private String name;
-	private int age;
+    
+    @Id
+    @Column(name = "ID")
+    private String id;
+    
+    @Column(name ="NAME")
+    private String name;
+    
+    private int age;
+    
 }
 ```
 
@@ -61,7 +65,37 @@ pulic class JpaMain{
 		EntityManager em = emf.createEntityManager();
 		//트랜잭션 획득
 		EntityTransaction tx = em.getTransaction();
+        
+        try{
+          tx.begin(); //트랜잭션 - 시작
+          logic(em); //비즈니스 로직 실행
+          tx.commit(); // 트랜잭션 - 커밋
+        }catch(Exception e){
+            tx.rollback(); //트랜잭션 롤백
+        }finally{
+            em.close(); //엔티티 매니저 종료
+        } 
+        emf.close(); //엔티티 매니저 팩토리 종료
 	}
+    private static void logic(EntityManger em){...}
 }
 ```
+
+코드는 크게 3부분으로 나뉘어 있다.
+
+- 엔티티 매니저 설정
+- 트랜잭션 관리
+- 비즈니스 로직
+
+> tip - 데이터베이스의 상태를 변환시키는 하나의 논리적 기능을 수행하기 위한 작업의 단위 또는 한꺼번에 모두 수행되어야 할 일련의 연산들을 의미한다
+
+### 엔티티 매니저의 생성 과정 
+
+1. 우선 persistence.xml 의 설정 정보를 사용해서 엔티티 매니저 팩토리를 생성해야한다. 이때 persistence 클래스를 사용하는데 , 이클래스는 앤티티 매니저 팩토리를 생성해서 jpa를 사용할수 있게해준다. persistence에서 이름이 jpabook인 영속성 유닛을 persistence-unit 을 찾아서 엔티티 매니저를 생성한다. 이때 xml의 생성 정보를 읽어서 jpa를 동작시키기 위한 기반 객체를 만들고 jpa 구현체에 따라서는 데이터 베이스 커넥션 풀도 생성하므로 엔티티 매니저 팩토리를 생성하는 비용은 아주크다. **따라서 엔티티 매니저 팩토리는 전체에서 딱 한번만 생성하고 공유해서 사용해야한다.**
+2. 엔티티 매니저 팩토리에서 엔티티 매니저를 생성한다 . jpa기능의 대부분은 **엔티티 매니저가 제공한다.** 엔티티 매니저는 데이터베이스 커넥션과 밀접한 관계가있으므로 스레드간에 공유하거나 재사용하면 안된다.
+3. 마지막으로 사용이 끝난 엔티티 매니저는 다음처럼 반드시 종료해야한다 . 앤티티 매니저 팩토리도 종료 해야한다.
+
+### 트랜잭션관리
+
+jpa를 사용하면 항상 트랜잭션 안에서 데이터를 변경해야 한다 . 트랜잭션 없이 데이터를 변경하면 예외가 발생한다. 엔티티 매니저에서 트랜잭션 api를 받아와야한다.
 
