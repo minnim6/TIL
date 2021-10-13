@@ -4,6 +4,7 @@
 
 책속속의 예제는 스프링 부트를 쓰는 제입맛대로 수정해서 작성 하였습니다 .
 
-[MemberTest] 를참고해주세요
+[MemberTest](https://github.com/minnim6/TIL/blob/main/Jpa/jpa-test/src/test/java/com/example/jpatest/MemberRepositoryTest.jav) 를 참조해주세요. 
 
-MemberTest :  https://github.com/minnim6/TIL/blob/main/Jpa/jpa-test/src/test/java/com/example/jpatest/MemberRepositoryTest.jav
+
+
