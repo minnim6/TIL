@@ -23,6 +23,8 @@ public class MemberRepositoryTest {
     @PersistenceContext
     EntityManager em;
 
+    EntityTransaction tx;
+
     Member member;
 
     @BeforeEach
@@ -30,16 +32,19 @@ public class MemberRepositoryTest {
         String id = "idl";
         member = new Member(id,"지한",2);
     }
+
     @AfterEach
     public void cleanup(){
         em.remove(member);
         em.close();
         emf.close();
     }
+
     @Test
     public void entityTest() {
         try {
-
+            tx.begin();
+            tx = em.getTransaction();
             em.persist(member);
 
             member.setAge(20);
@@ -55,11 +60,6 @@ public class MemberRepositoryTest {
         } catch (Exception e) {
             log.info("실패");
         }
-    }
-
-
-
-    private static void logic(EntityManager em) {
     }
 }
 
