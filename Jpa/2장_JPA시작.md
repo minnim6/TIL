@@ -59,8 +59,8 @@ public class Member{
 pulic class JpaMain{
 	pulic static void main(String[]args){
 		//엔티티 매니져 팩토리 생성
-		EntityManagerFactory emf = 
-			Prsistencr.createEntityMangerFactory("jpabook");
+    	EntityManagerFactory emf =
+            Persistence.createEntityManagerFactory("jpabook");
 		//엔티티 매니저 생성
 		EntityManager em = emf.createEntityManager();
 		//트랜잭션 획득
