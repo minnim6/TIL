@@ -15,13 +15,11 @@ import javax.swing.*;
 import java.util.HashMap;
 import java.util.Map;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 @Slf4j
 @SpringBootTest
 public class EncoderTest {
-
-    @Autowired
-    InMemoryUserDetailsManager inMemoryUserDetailsManager;
-
     @Autowired
     PasswordEncoder passwordEncoder;
 
@@ -44,6 +42,7 @@ public class EncoderTest {
 
     @Test
     public void passwordTest(){
-        log.info(passwordEncoder.encode("password"));
+        String result = passwordEncoder.encode("myPassword");
+        assertTrue(passwordEncoder.matches("myPassword", result));
     }
 }

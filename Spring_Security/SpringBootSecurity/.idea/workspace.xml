@@ -91,7 +91,7 @@
       <recent name="com.example.demo" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.EncoderTest.getPassword">
+  <component name="RunManager" selected="JUnit.EncoderTest.passwordTest">
     <configuration name="EncoderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="com.example.demo.test" />
       <extension name="coverage">
@@ -179,9 +179,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.EncoderTest.passwordTest" />
         <item itemvalue="JUnit.EncoderTest.getPassword" />
         <item itemvalue="JUnit.EncoderTest" />
-        <item itemvalue="JUnit.EncoderTest.passwordTest" />
         <item itemvalue="JUnit.UserSecurityTest.getIdTest" />
         <item itemvalue="JUnit.UserSecurityTest" />
       </list>
@@ -198,7 +198,8 @@
       <workItem from="1634120608381" duration="2815000" />
       <workItem from="1634123455004" duration="1787000" />
       <workItem from="1634131808085" duration="12202000" />
-      <workItem from="1634186361563" duration="12000" />
+      <workItem from="1634186361563" duration="1082000" />
+      <workItem from="1634189823541" duration="394000" />
     </task>
     <servers />
   </component>

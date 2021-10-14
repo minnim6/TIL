@@ -23,6 +23,6 @@ import java.util.Map;
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    
+
 
 }
