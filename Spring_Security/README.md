@@ -1,5 +1,5 @@
 # Spring Security
-> 하위 SpringBootSecurity 에서 예시 파일을 사용해 보고 있습니다 . 참고해주세요 :)
+> 하위 SpringBootSecurity 에서 스프링부트 버전으로 예시 파일을 사용해 보고 있습니다 . 참고해주세요 :)
 
 스프링 5.0 버전 이전 -> NoOpasswordEncoder 가 디폴트 패스워드 인코더 였다 .
 

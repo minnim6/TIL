@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05bf04e3-6f63-408c-b8d8-a86cbcb83371" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/demo/src/main/resources/application.properties.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/demo/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/Member.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/Roles.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/application.properties" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/demo/src/test/java/com/example/demo/EncoderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/test/java/com/example/demo/EncoderTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -201,7 +197,8 @@
       <updated>1634046115092</updated>
       <workItem from="1634120608381" duration="2815000" />
       <workItem from="1634123455004" duration="1787000" />
-      <workItem from="1634131808085" duration="10486000" />
+      <workItem from="1634131808085" duration="12202000" />
+      <workItem from="1634186361563" duration="12000" />
     </task>
     <servers />
   </component>
@@ -238,6 +235,14 @@
             <option name="EMULATED" value="true" />
           </properties>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.security/spring-security-core/5.5.2/6f20301689ded9e5b42c41085ba2e82f67f193fe/spring-security-core-5.5.2-sources.jar!/org/springframework/security/provisioning/InMemoryUserDetailsManager.java</url>
+          <line>144</line>
+          <properties class="org.springframework.security.provisioning.InMemoryUserDetailsManager" method="loadUserByUsername">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

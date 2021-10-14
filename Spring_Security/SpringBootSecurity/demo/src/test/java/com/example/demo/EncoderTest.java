@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.*;
@@ -41,12 +42,6 @@ public class EncoderTest {
         log.info(passwordEncoder.encode("password"));
     }
 
-    @Test
-    public void getPassword(){
-        UserDetails user = inMemoryUserDetailsManager.loadUserByUsername("user");
-        log.info(user.getPassword());
-        log.info(user.getUsername());
-    }
     @Test
     public void passwordTest(){
         log.info(passwordEncoder.encode("password"));
