@@ -28,18 +28,17 @@ public class MemberRepositoryTest {
     Member member;
 
     @BeforeEach
-    public void setup(){
+    public void setup() {
         String id = "idl";
-        member = new Member(id,"지한",2);
+        member = new Member(id, "지한", 2);
     }
 
     @AfterEach
-    public void cleanup(){
+    public void cleanup() {
         em.remove(member);
         em.close();
         emf.close();
     }
-
     @Test
     public void entityTest() {
         try {
@@ -61,6 +60,24 @@ public class MemberRepositoryTest {
             log.info("실패");
         }
     }
+
+
+    @Test
+    public void logic() {
+
+        em.persist(member);
+
+        member.setAge(20);
+
+        Member findMember = em.find(Member.class, "idl");
+        log.info("findMember=" + findMember.getName() + ", age =" + findMember.getAge());
+
+        List<Member> members = em.createQuery("select m from Member m", Member.class).getResultList();
+        log.info("member.size = " + members.size());
+
+        em.remove(member);
+    }
+
 }
 
 

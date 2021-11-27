@@ -99,3 +99,45 @@ pulic class JpaMain{
 
 jpa를 사용하면 항상 트랜잭션 안에서 데이터를 변경해야 한다 . 트랜잭션 없이 데이터를 변경하면 예외가 발생한다. 엔티티 매니저에서 트랜잭션 api를 받아와야한다.
 
+```
+EntityTransaction tx = ex.getTransaction();
+try{
+	tx.begin();
+	logic(em);
+	tx.commit();
+}catch(Exception e){
+	tx.rollback();
+}
+```
+
+트랜잭션 API를 사용해서 비즈니스 로직이 정상 동작하면 트랜잭션을 커밋하고 , 예외가 발생하면 트랜잭션을 롤백한다.
+
+### 비즈니스 로직
+
+```java
+ @Test
+    public void logic() {
+
+        em.persist(member);
+
+        member.setAge(20);
+        
+        Member findMember = em.find(Member.class, "idl");
+        log.info("findMember=" + findMember.getName() + ", age =" + findMember.getAge());
+
+        List<Member> members = em.createQuery("select m from Member m", Member.class).getResultList();
+        log.info("member.size = " + members.size());
+
+        em.remove(member);
+    }
+```
+
+> 출력결과
+
+```
+findMember=지한, age =20
+member.size = 1
+```
+
+- 수정 부분을 보면 내용을 반영하는 부분이 없고 , 단순히 엔티티의 값만 변경했다.하지만 jpa는 어떤 엔티티가 변경되었는지 추적하는 기능을 갖추고 있다 . 따라서 setAge() 처럼 엔티티의 값만 변경하면 다음과같은 update sql을 생성해서 데이터 베이스에 값을 변경한다.
+
